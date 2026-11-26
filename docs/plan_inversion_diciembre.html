@@ -1,0 +1,226 @@
+<title>Plan Diciembre Presmar</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: hoja de ruta de taller — banda de resumen arriba, después secciones apiladas en una columna ancha */
+:root{
+  --bg:#f3f4f2; --panel:#ffffff; --fg:#1d2124; --muted:#5d666c; --line:#d9ddda;
+  --accent:#d98a00; --accent-ink:#7a4c00; --accent-soft:#fdf1d8;
+  --good:#1f7a4a; --good-soft:#e3f3ea; --warn:#a36a00; --warn-soft:#fbf0d9; --bad:#b4372c; --bad-soft:#f8e4e1;
+  --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --f-body:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-num:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#15181a; --panel:#1e2226; --fg:#e9ecea; --muted:#9aa3a8; --line:#30363b;
+  --accent:#f2a91f; --accent-ink:#f6c25c; --accent-soft:#33280f;
+  --good:#5cc98b; --good-soft:#163024; --warn:#e8b54a; --warn-soft:#332810; --bad:#f07c70; --bad-soft:#3a1c19; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#15181a; --panel:#1e2226; --fg:#e9ecea; --muted:#9aa3a8; --line:#30363b;
+  --accent:#f2a91f; --accent-ink:#f6c25c; --accent-soft:#33280f;
+  --good:#5cc98b; --good-soft:#163024; --warn:#e8b54a; --warn-soft:#332810; --bad:#f07c70; --bad-soft:#3a1c19; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.55}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px;display:flex;flex-direction:column;gap:40px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:.01em}
+h1{font-size:clamp(2.1rem,6vw,3.2rem);line-height:1;text-transform:uppercase}
+h2{font-size:1.75rem;text-transform:uppercase;display:flex;align-items:baseline;gap:10px}
+h2 .n{font-family:var(--f-num);font-size:.9rem;color:var(--accent-ink);border:1.5px solid var(--accent);border-radius:4px;padding:0 6px}
+.eyebrow{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+p{margin:0;max-width:68ch}
+.num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+header{display:flex;flex-direction:column;gap:12px;border-bottom:3px solid var(--fg);padding-bottom:20px}
+header .meta{color:var(--muted);font-size:.9rem}
+section{display:flex;flex-direction:column;gap:16px}
+
+.toggle{display:inline-flex;border:1.5px solid var(--fg);border-radius:6px;overflow:hidden;align-self:flex-start}
+.toggle button{font:600 .9rem var(--f-body);padding:8px 16px;border:0;background:transparent;color:var(--fg);cursor:pointer}
+.toggle button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.toggle button:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
+
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.kpi .v{font-family:var(--f-num);font-size:1.45rem;font-variant-numeric:tabular-nums}
+.kpi.main{background:var(--accent-soft);border-color:var(--accent)}
+.kpi.main .v{color:var(--accent-ink);font-size:1.7rem}
+.kpi .s{color:var(--muted);font-size:.82rem}
+@media (max-width:760px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.callout{border-left:4px solid var(--accent);background:var(--panel);padding:12px 16px;border-radius:0 6px 6px 0;font-size:.93rem}
+
+.bar{display:flex;height:14px;border-radius:4px;overflow:hidden;border:1px solid var(--line)}
+.bar span{display:block;height:100%}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.82rem;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+
+.tbl{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.9rem}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;background:var(--bg)}
+td.r,th.r{text-align:right}
+td.c,th.c{text-align:center}
+tr:last-child td{border-bottom:0}
+tfoot td{font-weight:600;background:var(--bg)}
+.pill{display:inline-block;font-size:.72rem;font-weight:600;padding:1px 8px;border-radius:999px;white-space:nowrap}
+.g-A4{background:var(--good-soft);color:var(--good)}
+.g-A3,.g-A5{background:var(--accent-soft);color:var(--accent-ink)}
+.g-T{background:var(--warn-soft);color:var(--warn)}
+.pos{color:var(--good)}
+tr.off td{color:var(--muted)}
+.note td{font-size:.8rem;color:var(--muted)}
+
+.no{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.no div{background:var(--bad-soft);border-radius:6px;padding:10px 14px;font-size:.88rem;min-width:0}
+.no b{color:var(--bad);display:block;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase}
+
+.timeline{display:flex;flex-direction:column;border-left:2px solid var(--line);margin-left:6px}
+.step{display:grid;grid-template-columns:130px minmax(0,1fr);gap:16px;padding:10px 0 14px 18px;position:relative}
+.step::before{content:"";position:absolute;left:-7px;top:16px;width:12px;height:12px;border-radius:50%;background:var(--panel);border:2px solid var(--muted)}
+.step.key::before{background:var(--accent);border-color:var(--accent)}
+.step .d{font-family:var(--f-display);font-size:1.15rem;text-transform:uppercase;line-height:1.2}
+.step .d small{display:block;font-family:var(--f-body);font-size:.75rem;color:var(--muted);text-transform:none;font-weight:500}
+.bell{font-size:.72rem;font-weight:600;color:var(--accent-ink);background:var(--accent-soft);padding:1px 8px;border-radius:999px;margin-left:6px;white-space:nowrap}
+@media (max-width:560px){.step{grid-template-columns:minmax(0,1fr);gap:4px}}
+
+.promo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.promo div{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.promo h3{font-size:1.15rem;text-transform:uppercase}
+.promo p{font-size:.9rem;color:var(--muted)}
+.promo code{font-family:var(--f-num);font-size:.82rem;background:var(--bg);padding:1px 5px;border-radius:3px;color:var(--fg);word-break:break-word}
+@media (max-width:640px){.promo{grid-template-columns:minmax(0,1fr)}}
+
+.lvl{font-size:.72rem;font-weight:600;padding:1px 8px;border-radius:999px}
+.lvl.h{background:var(--bad-soft);color:var(--bad)} .lvl.m{background:var(--warn-soft);color:var(--warn)}
+footer{color:var(--muted);font-size:.82rem;border-top:1px solid var(--line);padding-top:16px;display:flex;flex-direction:column;gap:6px}
+</style>
+
+<div class="wrap">
+<header>
+  <span class="eyebrow">Presmar Moto · Mercado Libre Argentina · Diciembre 2026</span>
+  <h1>Plan de inversión para diciembre</h1>
+  <p class="meta">Armado el 26/11/2026. Costos: lista mayorista Presmar de octubre 2026 + 21% de IVA. Cargos de Mercado Libre estimados para un vendedor monotributista (Clásica 14%, envío gratis ~$7.790 desde $33.000).</p>
+</header>
+
+<section aria-labelledby="s1">
+  <h2 id="s1"><span class="n">1</span>Cuánta plata separar</h2>
+  <div class="toggle" role="group" aria-label="Escenario">
+    <button id="b-rec" type="button" aria-pressed="true">Recomendado</button>
+    <button id="b-con" type="button" aria-pressed="false">Conservador</button>
+  </div>
+  <div class="kpis">
+    <div class="kpi main"><span class="eyebrow">Total a separar</span><span class="v" id="k-total">$3.387.814</span><span class="s">antes del 1/12</span></div>
+    <div class="kpi"><span class="eyebrow">Mercadería</span><span class="v" id="k-merc">$3.137.814</span><span class="s" id="k-units">23 unidades</span></div>
+    <div class="kpi"><span class="eyebrow">Ads + imprevistos</span><span class="v" id="k-extra">$250.000</span><span class="s" id="k-extra-s">Ads $90.000 · imprevistos $160.000</span></div>
+    <div class="kpi"><span class="eyebrow">Ganancia neta estimada</span><span class="v pos" id="k-gan">+$500.814</span><span class="s">si se vende todo</span></div>
+  </div>
+  <div class="bar" id="bar" aria-hidden="true"></div>
+  <div class="legend" id="legend"></div>
+  <p class="callout">La plata de cada venta no vuelve enseguida. Mercado Pago la libera unos días después de que el comprador recibe el producto. Las reposiciones de diciembre se pagan con plata propia, no con lo que se va vendiendo.</p>
+</section>
+
+<section aria-labelledby="s2">
+  <h2 id="s2"><span class="n">2</span>Unidades por producto</h2>
+  <p>A4 es donde está la ganancia al precio sugerido. Las pruebas de baterías y trabas solo se compran si la competencia ya vende al <b>precio para ganar 20%</b> o más.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Grupo</th><th>Producto</th><th class="c">Unid.</th><th class="r">Inversión</th><th class="r">Precio de venta</th><th class="r">Ganancia total</th></tr></thead>
+    <tbody id="rows"></tbody>
+    <tfoot><tr><td></td><td>Total</td><td class="c num" id="f-u"></td><td class="r num" id="f-inv"></td><td></td><td class="r num pos" id="f-gan"></td></tr></tfoot>
+  </table></div>
+  <div class="no">
+    <div><b>No comprar</b>A6 Kit service y A7 Chaoyang: pierden plata en Mercado Libre.</div>
+    <div><b>No comprar</b>Kits Muc-Off x2, x3 y x4: pérdida o casi cero.</div>
+    <div><b>No comprar</b>SP52500, SP52501, Funda Phone Case, vidrio y K10: menos de $2.200 por venta.</div>
+  </div>
+  <p class="callout">Si un producto se agota antes del 10/12, reponer 1 o 2 unidades. Después del 12/12 no reponer regalos: llegarían tarde.</p>
+</section>
+
+<section aria-labelledby="s3">
+  <h2 id="s3"><span class="n">3</span>Qué hacer cada día</h2>
+  <div class="timeline">
+    <div class="step key"><div class="d">Jue 26/11<small>hoy</small></div><div>Separar la plata. Mandar el pedido a Presmar y pedir <b>precio de revendedor online</b>: con un 15% de descuento, las pruebas ya dejan ganancia al sugerido.</div></div>
+    <div class="step key"><div class="d">Vie 27/11</div><div>Buscar en Mercado Libre el precio de la competencia para cada producto, mismo código y marca. Confirmar el pedido y sacar las pruebas que no lleguen al precio para ganar 20%.</div></div>
+    <div class="step"><div class="d">28 – 29/11<small>sábado y domingo</small></div><div>Recibir la mercadería. Sacar fotos propias (con la moto, en uso) y armar títulos y fichas.</div></div>
+    <div class="step key"><div class="d">Lun 30/11</div><div><b>Publicar A4, A3 y A5.</b> Primero Midland y NOCO, para que junten visitas antes de diciembre. <span class="bell">Recordatorio</span></div></div>
+    <div class="step"><div class="d">Mar 1/12</div><div>Publicar las pruebas de baterías y trabas al precio para ganar 20%.</div></div>
+    <div class="step key"><div class="d">Jue 3/12</div><div>Prender Mercado Ads solo en A4. <span class="bell">Recordatorio 4/12</span></div></div>
+    <div class="step"><div class="d">7 – 8/12<small>fin de semana largo</small></div><div>8/12 es feriado. Revisar preguntas cada 1 o 2 horas. <span class="bell">Recordatorio 8/12</span></div></div>
+    <div class="step key"><div class="d">Jue 10/12</div><div>Revisar ventas y reponer lo agotado. Último pedido grande a Presmar. <span class="bell">Recordatorio 12/12</span></div></div>
+    <div class="step key"><div class="d">~18/12</div><div>Corte de regalos. Sacar "llega antes de Navidad" de los títulos cuando ya no se cumpla. <span class="bell">Recordatorio 16/12</span></div></div>
+    <div class="step"><div class="d">19 – 20/12</div><div>Pasar a productos de viaje y verano: NOCO para la ruta, SP Connect. <span class="bell">Recordatorio 20/12</span></div></div>
+  </div>
+</section>
+
+<section aria-labelledby="s4">
+  <h2 id="s4"><span class="n">4</span>Cómo promocionarlo</h2>
+  <div class="promo">
+    <div><h3>Títulos que se buscan</h3><p>Marca y modelo primero, después lo que hace y "regalo".</p><p><code>Intercomunicador Moto Midland BTR1 Bluetooth Casco Regalo</code></p><p><code>Arrancador Batería NOCO GB20 Boost Auto Moto</code></p></div>
+    <div><h3>Mercado Ads solo en A4</h3><p>Empezar con ~$3.000 por día. A4 deja ~10–12% neto, así que el costo de la publicidad tiene que quedar <b>debajo de ~8% de lo vendido</b>. Si pasa de ahí, la publicidad se come la ganancia.</p></div>
+    <div><h3>Cuidado con cuotas y promociones</h3><p>Las cuotas sin interés y las promociones de Mercado Libre se pagan con tu margen. Antes de aceptar una invitación, calcular si sigue dejando ganancia.</p></div>
+    <div><h3>Fotos propias y respuesta rápida</h3><p>Responder en menos de 1 hora mejora la posición en las búsquedas y la reputación. La reputación baja el costo del envío.</p></div>
+    <div><h3>Canal directo</h3><p>Baterías y trabas por WhatsApp, Instagram y grupos de motos de la zona, al sugerido de Presmar. Sin comisión ni envío dejan ~30% de ganancia.</p></div>
+    <div><h3>Regalo para el motoquero</h3><p>Posteos en Instagram con Midland y NOCO como regalo de Navidad, con link a la publicación de Mercado Libre.</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="s5">
+  <h2 id="s5"><span class="n">5</span>Riesgos</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Riesgo</th><th>Probabilidad</th><th>Cómo se maneja</th></tr></thead>
+    <tbody>
+      <tr><td>La competencia vende A4 más barato que el sugerido</td><td><span class="lvl m">Media</span></td><td>Chequeo del 27/11. Si el precio está más de 8% abajo, ese producto sale del pedido.</td></tr>
+      <tr><td>Presmar no tiene stock de Midland o NOCO</td><td><span class="lvl m">Media</span></td><td>Confirmar stock en el pedido de hoy. Reemplazo: BT Mini o GB20.</td></tr>
+      <tr><td>La plata de las ventas queda retenida y no alcanza para reponer</td><td><span class="lvl h">Alta</span></td><td>Fondo de imprevistos y sin reposición de regalos después del 12/12.</td></tr>
+      <tr><td>El envío de productos de más de 1 kg cuesta más de lo estimado</td><td><span class="lvl m">Media</span></td><td>Ver el costo real en cada publicación apenas se publique.</td></tr>
+      <tr><td>Cuenta nueva sin reputación: envío más caro y menos ventas</td><td><span class="lvl h">Alta</span></td><td>Poco stock al principio, despacho rápido y nada de cuotas ni ofertas agresivas.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<footer>
+  <span>Ganancia neta = precio de venta − costo Presmar con IVA − comisión, costo fijo y envío de Mercado Libre con IVA. No incluye Ingresos Brutos, retenciones, impuesto al cheque, cuotas ni flete desde Presmar. El envío de productos de más de 1 kg es una estimación.</span>
+  <span>Cuando las publicaciones estén activas, los números se recalculan con las tarifas reales de la cuenta.</span>
+</footer>
+</div>
+
+<script>
+const P=[
+ ["A4","Midland BT Mini Simple",148118,214770,20845,2,1],
+ ["A4","Midland BTR 1 Simple",243571,353178,40353,2,1],
+ ["A4","Midland BTR 1 Doble",444353,644312,81386,1,0],
+ ["A4","Midland R1 Mesh Simple",300679,435984,52024,1,0],
+ ["A4","Midland H5 Pro (cámara)",183995,266793,28177,1,1],
+ ["A4","NOCO GB20",214394,310871,34390,2,1],
+ ["A4","NOCO GB40",268022,388632,43281,1,0],
+ ["A4","Midland Powerbank Air Compresor",77540,112433,6421,2,1],
+ ["A3","SP Connect SP52400 Kit Moto LT",75520,109505,6008,1,1],
+ ["A3","SP Connect Funda Extrema iPhone 17",97101,140796,10419,1,0],
+ ["A5","Muc-Off MO-285 Valija x10",179945,260920,17415,1,0],
+ ["A5","Muc-Off MO-21197 Kit x8 lavado",97451,141304,4791,1,0],
+ ["T","Kronwell PSTX4L",22973,51377,10275,2,2],
+ ["T","Motobatt MTZ5S",28500,60143,12029,1,1],
+ ["T","MTX-6177 Traba disco 5,5 mm",13343,27607,5521,2,2],
+ ["T","MTX-6178 Traba manillar",11185,24184,4837,2,2]
+];
+const S={rec:{col:5,ads:90000,imp:160000},con:{col:6,ads:60000,imp:55000}};
+const GL={A4:"A4 · regalos caros",A3:"A3 · SP Connect",A5:"A5 · Muc-Off",T:"Pruebas · al precio 20%"};
+const GC={A4:"var(--good)",A3:"var(--accent)",A5:"var(--accent-ink)",T:"var(--warn)"};
+const $=s=>document.getElementById(s);
+const fmt=n=>"$"+Math.round(n).toLocaleString("es-AR");
+function render(k){
+  const s=S[k];let inv=0,gan=0,u=0;const byG={};let html="";
+  for(const p of P){const q=p[s.col];const i=p[2]*q,g=p[4]*q;inv+=i;gan+=g;u+=q;byG[p[0]]=(byG[p[0]]||0)+i;
+    html+=`<tr class="${q?"":"off"}"><td><span class="pill g-${p[0]}">${p[0]==="T"?"Prueba":p[0]}</span></td><td>${p[1]}</td><td class="c num">${q||"—"}</td><td class="r num">${q?fmt(i):"—"}</td><td class="r num">${fmt(p[3])}${p[0]==="T"?" *":""}</td><td class="r num ${q?"pos":""}">${q?"+"+fmt(g):"—"}</td></tr>`;}
+  $("rows").innerHTML=html+`<tr class="note"><td colspan="6">* Precio para ganar 20%. Al precio sugerido de Presmar estas pruebas pierden plata. Con guion: no se compra en este escenario.</td></tr>`;
+  $("f-u").textContent=u;$("f-inv").textContent=fmt(inv);$("f-gan").textContent="+"+fmt(gan);
+  $("k-total").textContent=fmt(inv+s.ads+s.imp);$("k-merc").textContent=fmt(inv);$("k-units").textContent=u+" unidades";
+  $("k-extra").textContent=fmt(s.ads+s.imp);$("k-extra-s").textContent="Ads "+fmt(s.ads)+" · imprevistos "+fmt(s.imp);
+  $("k-gan").textContent="+"+fmt(gan);
+  $("bar").innerHTML=Object.keys(GL).map(g=>byG[g]?`<span style="width:${byG[g]/inv*100}%;background:${GC[g]}"></span>`:"").join("");
+  $("legend").innerHTML=Object.keys(GL).filter(g=>byG[g]).map(g=>`<span><i style="background:${GC[g]}"></i>${GL[g]} · ${fmt(byG[g])} (${Math.round(byG[g]/inv*100)}%)</span>`).join("");
+  $("b-rec").setAttribute("aria-pressed",k==="rec");$("b-con").setAttribute("aria-pressed",k==="con");
+  try{localStorage.setItem("esc",k)}catch(e){}
+}
+$("b-rec").onclick=()=>render("rec");$("b-con").onclick=()=>render("con");
+let start="rec";try{start=localStorage.getItem("esc")||"rec"}catch(e){}
+render(S[start]?start:"rec");
+</script>
