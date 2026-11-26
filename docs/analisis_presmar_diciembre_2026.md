@@ -38,10 +38,9 @@ En casi toda la lista, el **sugerido ≈ mayorista × 1,75** (Kronwell ≈ × 1,
 Costo real = mayorista × 1,21 (IVA). Si vendés **al sugerido**:
 
 - Margen bruto ≈ **31% del precio de venta** (Kronwell ≈ 33%).
-- Menos la comisión de Mercado Libre (~13–17% clásica) ≈ **14–18%**.
-- Menos el envío gratis (obligatorio desde ~$33.000) y el costo de cuotas sin interés si las ofrecés ≈ **5–12% neto**.
+- ⚠️ **CORREGIDO (ver `ganancia_real_productos_A.md`):** sumando la comisión (~14%), el envío gratis (~$7.800 desde $33.000) o el costo fijo ($3.360 por debajo), y el IVA de esos cargos, **los productos de menos de ~$80.000 dan PÉRDIDA al precio sugerido**. Solo los de ticket alto (Midland, NOCO, H5) dejan ~10–12% neto.
 
-**Conclusión:** a precio sugerido el margen es justo. Conviene:
+**Conclusión:** el sugerido de Presmar no sirve como precio para Mercado Libre. Conviene:
 1. Publicar en **Clásica** sin cuotas propias (Mercado Pago ya ofrece cuotas) o subir un 10–15% por encima del sugerido en las publicaciones Premium.
 2. Armar **kits o combos** para subir el ticket y diluir el costo fijo y el envío.
 3. Los productos de **menos de ~$15.000** (filtros, cepillos, cabezales SP) **no conviene venderlos sueltos**: el cargo fijo se come el margen. Van en kits.
@@ -179,8 +178,12 @@ Motivo: el parque de 110–150 cc es enorme y crece. Las cubiertas Chaoyang tien
 
 ---
 
-## 4. Plan de acción sugerido (próximos 20 días)
+## ⭐ 4. PLAN DE ACCIÓN SUGERIDO (próximos 20 días) ⭐
 
+> 🔔 Recordatorios automáticos en esta sesión: **30/11 · 4/12 · 8/12 · 12/12 · 16/12 · 20/12** (10:00 hs, Argentina).
+> ⚠️ Antes de publicar cada producto, revisá su "Precio para ganar 20%" en `ganancia_real_productos_A.md`.
+
+0. **Ya:** chequear en Mercado Libre el precio de la competencia para cada producto A y negociar con Presmar un precio para revendedor online. Priorizar A4, que es donde hay margen.
 1. **Antes del 1/12:** publicar o actualizar **A1 (trabas)**, **A2 (baterías chicas)** y **A3 (SP Connect + K10)**. Son las de más rotación.
 2. **1 al 15/12:** subir los **regalos (A4 y A5)** con títulos de regalo ("Regalo para motociclista", "Kit regalo Muc-Off") y activar **Mercado Ads** solo en esos productos. Mercado Libre empuja la publicidad, que creció 58%.
 3. **Armar los kits (A6)** para no vender ítems de menos de $15k sueltos.
