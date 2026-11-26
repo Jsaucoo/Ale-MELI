@@ -76,3 +76,54 @@ Fecha: 26/11/2026 · Detalle en `ganancia_real_productos_A.csv`
 - **Baterías y trabas:** considerá venderlas por **Mercado Libre con retiro en persona o envío por tu cuenta (Flex)**, o por canal directo (WhatsApp, Instagram, local), donde no pagás comisión ni envío.
 - **Chaoyang: descartado para Mercado Libre** en estas condiciones.
 - **Cuando publiques**, pedime que corra `calcular_costos_venta` sobre cada publicación para tener el número oficial.
+
+## Precio mínimo para no perder (y precio recomendado)
+
+Calculado con los mismos supuestos (monotributista, comisión 14%, envío gratis desde $33.000). **Equilibrio** = ganancia $0. **Recomendado** = precio redondo terminado en 900 que deja **~10% neto**, el piso razonable para cubrir devoluciones, Ingresos Brutos y retenciones. Detalle en `precios_minimos_productos_A.csv`.
+
+| Grupo | Producto | Sugerido Presmar | Mínimo (equilibrio) | **Recomendado (~10%)** | Ganás a ese precio | Para 20% |
+|---|---|---:|---:|---:|---:|---:|
+| A1 | MTX-6175 Traba disco c/alarma | 48.467 | 56.300 | **64.900** | 7.197 | 74.100 |
+| A1 | MTX-6177 Traba disco 5,5mm | 17.346 | 21.000 | **23.900** | 2.442 | 27.700 |
+| A1 | MTX-6178 Traba manillar | 14.540 | 18.400 | **20.900** | 2.109 | 24.200 |
+| A1 | KIT Antirrobo (6175+6178) | 62.000 | 69.800 | **79.900** | 8.472 | 91.900 |
+| A2 | Kronwell PSTX4L | 34.344 | 32.600 | **44.900** | 4.895 | 51.400 |
+| A2 | Kronwell PS12V5-3B | 34.711 | 41.900 | **47.900** | 5.026 | 55.200 |
+| A2 | Kronwell PSTZ6S | 41.310 | 47.300 | **53.900** | 5.494 | 62.300 |
+| A2 | Kronwell PS12V7-3B | 52.986 | 57.900 | **65.900** | 6.699 | 76.200 |
+| A2 | Kronwell PSTX7L | 53.612 | 58.400 | **66.900** | 7.099 | 76.900 |
+| A2 | Kronwell PS12V9-4B | 60.223 | 68.300 | **77.900** | 8.046 | 89.900 |
+| A2 | Motobatt MTZ5S | 41.325 | 45.700 | **52.900** | 6.013 | 60.200 |
+| A2 | Motobatt MTX5L | 46.885 | 52.800 | **60.900** | 6.754 | 69.600 |
+| A2 | Motobatt MTZ7S | 62.769 | 66.000 | **75.900** | 8.259 | 86.900 |
+| A3 | SP52500 Kit Moto Espejo+abraz. | 78.213 | 76.300 | **86.900** | 8.813 | 100.500 |
+| A3 | SP52501 Kit Moto Espejo+interfaz | 70.390 | 69.900 | **79.900** | 8.394 | 92.000 |
+| A3 | SP52400 Kit Moto LT+abraz. | 109.505 | 102.300 | **116.900** | 12.151 | 134.800 |
+| A3 | SP52642/64 Sobre impermeable L/XL | 54.744 | 56.900 | **64.900** | 6.725 | 74.900 |
+| A3 | SP Funda Phone Case iPhone17 | 70.390 | 69.900 | **79.900** | 8.394 | 92.000 |
+| A3 | SP Funda Extrema iPhone17 | 140.796 | 128.300 | **145.900** | 14.658 | 169.000 |
+| A3 | SP Vidrio pantalla | 31.276 | 30.900 | **42.900** | 4.637 | 49.200 |
+| A3 | Midland K10 delivery | 82.472 | 79.900 | **90.900** | 9.198 | 105.200 |
+| A4 | Midland BT Mini Simple | 214.770 | 189.700 | **215.900** | 21.783 | 249.900 |
+| A4 | Midland BTR 1 Simple | 353.178 | 304.700 | **346.900** | 35.138 | 401.300 |
+| A4 | Midland BTR 1 Doble | 644.312 | 546.400 | **621.900** | 62.771 | 719.600 |
+| A4 | Midland R1 Mesh Simple | 435.984 | 373.400 | **424.900** | 42.817 | 491.800 |
+| A4 | Midland H5 Pro camara | 266.793 | 232.900 | **264.900** | 26.605 | 306.800 |
+| A4 | NOCO GB20 | 310.871 | 269.600 | **306.900** | 31.091 | 355.000 |
+| A4 | NOCO GB40 | 388.632 | 336.600 | **382.900** | 38.520 | 443.300 |
+| A4 | Midland Powerbank Air Compresor | 112.433 | 104.800 | **119.900** | 12.623 | 138.000 |
+| A5 | Muc-Off MO-625 Kit x2 | 49.933 | 55.400 | **62.900** | 6.313 | 72.900 |
+| A5 | Muc-Off MO-20802 Kit x3 visor | 39.127 | 43.900 | **49.900** | 5.037 | 57.800 |
+| A5 | Muc-Off MO-21069 Kit x3 cadena | 78.254 | 78.900 | **89.900** | 9.208 | 103.900 |
+| A5 | Muc-Off MO-20803 Kit x4 casco | 78.254 | 78.900 | **89.900** | 9.208 | 103.900 |
+| A5 | Muc-Off MO-636 Kit x4 Essentials | 104.338 | 104.900 | **119.900** | 12.507 | 138.100 |
+| A5 | Muc-Off MO-21197 Kit x8 lavado | 141.304 | 135.600 | **154.900** | 16.084 | 178.600 |
+| A5 | Muc-Off MO-285 Valija x10 | 260.920 | 240.000 | **272.900** | 27.366 | 316.100 |
+| A6 | KIT Service Wave (F300+HN21+ChainLube) | 34.000 | 30.800 | **45.900** | 5.179 | 52.300 |
+| A7 | Chaoyang 2.50-17 H909 | 37.030 | 58.700 | **66.900** | 6.837 | 77.300 |
+| A7 | Chaoyang 2.75-18 H909 | 51.184 | 74.200 | **84.900** | 8.943 | 97.700 |
+| A7 | Chaoyang 90/90-17 H909 | 61.005 | 84.900 | **96.900** | 9.998 | 111.800 |
+
+**Ojo con el escalón de $33.000:** la Kronwell PSTX4L, el vidrio SP y el kit service quedan en equilibrio justo por debajo de $33.000 (~$31–33 mil), porque ahí no pagás envío. Pero entre $33.000 y ~$42.000 vuelven a perder, porque se suma el envío gratis. O los dejás por debajo de $33.000 (casi sin ganancia, y el comprador paga el envío), o saltás directo a ~$43–46 mil.
+
+**Antes de publicar:** compará cada precio recomendado con el de la competencia en Mercado Libre. Si la competencia vende más barato que tu "mínimo", ese producto no conviene en Mercado Libre con este costo.
