@@ -28,7 +28,8 @@ ADS={"A4","A5"}  # Mercado Ads en diciembre: +50% visitas, cuesta 6% de lo vendi
 
 def correr(ref_factor, seed):
     R=random.Random(seed); ventas_cum=0
-    ref={n:float(REC[n]["precio_sugerido_presmar"])*ref_factor*R.lognormvariate(0,0.12) for n in REC}
+    base_col="precio_recomendado" if ref_factor=="rec" else "precio_sugerido_presmar"; f=1.0 if ref_factor=="rec" else ref_factor
+    ref={n:float(REC[n][base_col])*f*R.lognormvariate(0,0.12) for n in REC}
     filas={n:[0]*6 for n in REC}; gan={n:0.0 for n in REC}; fact={n:0.0 for n in REC}
     for mes in range(6):
         rep=0.45+0.55*min(1,ventas_cum/60)            # vendedor nuevo: menos visibilidad y confianza al principio
@@ -72,11 +73,12 @@ def escenario(nombre,ref_factor,N=1000):
 
 if __name__=="__main__":
     E=[escenario("base (competencia vende al sugerido Presmar)",1.0),
-       escenario("competencia agresiva (vende 10% bajo el sugerido)",0.9)]
+       escenario("competencia agresiva (vende 10% bajo el sugerido)",0.9),
+       escenario("mercado acepta tus precios recomendados",'rec')]
     for e in E:
         print("\n=== ",e["nombre"]); print("unidades 6m p10/med/p90:",e["unid"]," facturación med:",round(e["fact"]),
               " ganancia p10/med/p90:",[round(x) for x in e["tot"]]," por mes:",e["mes"])
-        with open(os.path.join(HERE,f"simulacion_6m_{'base' if e is E[0] else 'agresiva'}.csv"),"w",newline="") as f:
+        with open(os.path.join(HERE,f"simulacion_6m_{['base','agresiva','recomendado'][E.index(e)]}.csv"),"w",newline="") as f:
             w=csv.DictWriter(f,fieldnames=list(e["prod"][0])); w.writeheader(); w.writerows(e["prod"])
         g={}
         for p in e["prod"]:
